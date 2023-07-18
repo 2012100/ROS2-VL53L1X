@@ -15,7 +15,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
-add_executable(vl53l1x_node src/vl53l1x_node.cpp src/vl53l1x.cpp)
+add_executable(vl53l1x_node src2/vl53l1x_node.cpp src2/vl53l1x.cpp)
 ament_target_dependencies(vl53l1x_node rclcpp sensor_msgs)
 target_include_directories(vl53l1x_node
   PUBLIC
