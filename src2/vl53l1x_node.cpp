@@ -36,8 +36,8 @@ class Vl53l1xPublisher : public rclcpp::Node
       // the minimum timing budget is 20 ms for short distance mode and 33 ms for
       // medium and long distance modes. See the VL53L1X datasheet for more
       // information on range and timing limits.
-      // sensor.setDistanceMode(Vl53l1x::Long);
-      sensor.setDistanceMode(Vl53l1x::Short);
+      sensor.setDistanceMode(Vl53l1x::Long);
+      // sensor.setDistanceMode(Vl53l1x::Short);
       sensor.setMeasurementTimingBudget(timing_budget_);
 
       // Start continuous readings at a rate of one measurement every 100 ms (the
@@ -70,7 +70,7 @@ class Vl53l1xPublisher : public rclcpp::Node
       message.radiation_type = sensor_msgs::msg::Range::INFRARED;
       message.field_of_view = 0.47;              // Typically 27 degrees or 0,471239 radians
       message.min_range = 0.07;                  // 140 mm.  (It is actully much less, but this makes sense in the context
-      message.max_range = 2.00;                  // 3.6 m. in the dark, down to 73cm in bright light
+      message.max_range = 3.40;                  // 3.6 m. in the dark, down to 73cm in bright light
 
       message.range = (float) distance / 1000.0; // range in meters
 
